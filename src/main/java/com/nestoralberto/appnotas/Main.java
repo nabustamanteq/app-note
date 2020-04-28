@@ -5,19 +5,12 @@
  */
 package com.nestoralberto.appnotas;
 
-import com.nestoralberto.config.Conexion;
 import com.nestoralberto.controller.NotaController;
-import com.nestoralberto.model.Nota;
-import com.nestoralberto.service.impl.NotaImpl;
 import com.nestoralberto.view.FrmNota;
-import java.sql.Connection;
-import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -38,7 +31,7 @@ public class Main {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         
         } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
         
         frmNota.setVisible(true);

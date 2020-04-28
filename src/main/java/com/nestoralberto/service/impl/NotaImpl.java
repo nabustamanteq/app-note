@@ -11,7 +11,6 @@ import com.nestoralberto.service.INota;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,10 +44,10 @@ public class NotaImpl implements INota{
             } else {
                 conexion.rollback();
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             
             conexion.rollback();
-//            throw ex;
+            throw ex;
             
         } finally {
             ps.close();
@@ -76,9 +75,10 @@ public class NotaImpl implements INota{
             } else {
                 conexion.rollback();
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
 
             conexion.rollback();
+            throw ex;
 
         } finally {
             ps.close();
@@ -112,9 +112,9 @@ public class NotaImpl implements INota{
                 obj.setEstado(rs.getString("estado"));
                 lista.add(obj);
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             
-            System.out.println("ERROR : " + ex.getMessage());
+            throw ex;
             
         } finally {
             ps.close();
@@ -146,9 +146,9 @@ public class NotaImpl implements INota{
                 obj.setFecha(rs.getDate("fecha"));
                 obj.setEstado(rs.getString("estado"));
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             
-            System.out.println("ERROR : " + ex.getMessage());
+            throw ex;
             
         } finally {
             ps.close();
@@ -174,9 +174,10 @@ public class NotaImpl implements INota{
             } else {
                 conexion.rollback();
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             
             conexion.rollback();
+            throw ex;
             
         } finally {
             ps.close();
